@@ -9,6 +9,13 @@ import { ArrowLeft, ArrowRight, RotateCcw } from "lucide-react";
 interface Question {
   id: number;
   question: string;
+  correctAnswer: string;
+  wrongAnswers: string[];
+}
+
+interface ShuffledQuestion {
+  id: number;
+  question: string;
   options: string[];
   correctAnswer: number;
 }
@@ -17,62 +24,182 @@ const allQuestions: Question[] = [
   {
     id: 1,
     question: "What does DRY stand for?",
-    options: ["Don't Repeat Yourself", "Do Repeat Yourself", "Don't Reuse Your code", "Data Repetition Yield"],
-    correctAnswer: 0,
+    correctAnswer: "Don't Repeat Yourself",
+    wrongAnswers: ["Do Repeat Yourself", "Don't Reuse Your code", "Data Repetition Yield", "Duplicate Resistant Yield", "Don't Refactor Yet"],
   },
   {
     id: 2,
     question: "Which principle is NOT part of SOLID?",
-    options: ["Single Responsibility", "Open/Closed", "KISS", "Dependency Inversion"],
-    correctAnswer: 2,
+    correctAnswer: "KISS",
+    wrongAnswers: ["Single Responsibility", "Open/Closed", "Dependency Inversion", "Interface Segregation", "Liskov Substitution"],
   },
   {
     id: 3,
     question: "What does KISS stand for?",
-    options: ["Keep It Super Simple", "Keep It Simple, Stupid", "Keep Implementing Simple Solutions", "Keep It Secure and Safe"],
-    correctAnswer: 1,
+    correctAnswer: "Keep It Simple, Stupid",
+    wrongAnswers: ["Keep It Super Simple", "Keep Implementing Simple Solutions", "Keep It Secure and Safe", "Keep Iterating Simple Systems", "Keep It Short and Sweet"],
   },
   {
     id: 4,
     question: "What is the main principle behind YAGNI?",
-    options: ["Always plan for the future", "Don't add functionality until it's necessary", "Write all features upfront", "You always gonna need it"],
-    correctAnswer: 1,
+    correctAnswer: "Don't add functionality until it's necessary",
+    wrongAnswers: ["Always plan for the future", "Write all features upfront", "You always gonna need it", "Build everything modular", "Plan ahead extensively"],
   },
   {
     id: 5,
     question: "What does the 'R' in CRUD stand for?",
-    options: ["Remove", "Read", "Refresh", "Restore"],
-    correctAnswer: 1,
+    correctAnswer: "Read",
+    wrongAnswers: ["Remove", "Refresh", "Restore", "Retrieve", "Revise"],
   },
   {
     id: 6,
     question: "Which HTTP method is typically used for UPDATE operations in REST?",
-    options: ["GET", "POST", "PUT", "DELETE"],
-    correctAnswer: 2,
+    correctAnswer: "PUT",
+    wrongAnswers: ["GET", "POST", "DELETE", "PATCH", "OPTIONS"],
   },
   {
     id: 7,
     question: "What does API stand for?",
-    options: ["Application Programming Interface", "Automated Program Integration", "Advanced Programming Instructions", "Application Process Integration"],
-    correctAnswer: 0,
+    correctAnswer: "Application Programming Interface",
+    wrongAnswers: ["Automated Program Integration", "Advanced Programming Instructions", "Application Process Integration", "Automated Process Interface", "Applied Program Interaction"],
   },
   {
     id: 8,
     question: "In MVC, what does the Controller do?",
-    options: ["Manages data and business logic", "Displays information to users", "Processes user input and updates Model/View", "Stores database connections"],
-    correctAnswer: 2,
+    correctAnswer: "Processes user input and updates Model/View",
+    wrongAnswers: ["Manages data and business logic", "Displays information to users", "Stores database connections", "Handles rendering", "Contains all business rules"],
   },
   {
     id: 9,
     question: "What is the correct order of TDD cycle?",
-    options: ["Green-Red-Refactor", "Red-Green-Refactor", "Refactor-Red-Green", "Red-Refactor-Green"],
-    correctAnswer: 1,
+    correctAnswer: "Red-Green-Refactor",
+    wrongAnswers: ["Green-Red-Refactor", "Refactor-Red-Green", "Red-Refactor-Green", "Green-Refactor-Red", "Test-Code-Deploy"],
   },
   {
     id: 10,
     question: "What does CI in CI/CD stand for?",
-    options: ["Code Integration", "Continuous Integration", "Complete Implementation", "Central Installation"],
-    correctAnswer: 1,
+    correctAnswer: "Continuous Integration",
+    wrongAnswers: ["Code Integration", "Complete Implementation", "Central Installation", "Controlled Integration", "Constant Improvement"],
+  },
+  {
+    id: 11,
+    question: "Which SOLID principle states that a class should have only one reason to change?",
+    correctAnswer: "Single Responsibility Principle",
+    wrongAnswers: ["Open/Closed Principle", "Liskov Substitution Principle", "Interface Segregation Principle", "Dependency Inversion Principle", "Don't Repeat Yourself"],
+  },
+  {
+    id: 12,
+    question: "What does the 'C' in CRUD stand for?",
+    correctAnswer: "Create",
+    wrongAnswers: ["Copy", "Change", "Control", "Connect", "Cache"],
+  },
+  {
+    id: 13,
+    question: "In REST, which HTTP method is idempotent?",
+    correctAnswer: "GET",
+    wrongAnswers: ["POST", "All methods", "None of them", "Only DELETE", "CONNECT"],
+  },
+  {
+    id: 14,
+    question: "What does the 'M' in MVC stand for?",
+    correctAnswer: "Model",
+    wrongAnswers: ["Manager", "Module", "Method", "Middleware", "Main"],
+  },
+  {
+    id: 15,
+    question: "In TDD, what color represents a passing test?",
+    correctAnswer: "Green",
+    wrongAnswers: ["Red", "Blue", "Yellow", "White", "Orange"],
+  },
+  {
+    id: 16,
+    question: "What does CD in CI/CD stand for?",
+    correctAnswer: "Continuous Deployment",
+    wrongAnswers: ["Code Delivery", "Complete Deployment", "Central Distribution", "Controlled Delivery", "Constant Development"],
+  },
+  {
+    id: 17,
+    question: "Which principle suggests software entities should be open for extension but closed for modification?",
+    correctAnswer: "Open/Closed Principle",
+    wrongAnswers: ["Single Responsibility", "Liskov Substitution", "Interface Segregation", "Dependency Inversion", "YAGNI"],
+  },
+  {
+    id: 18,
+    question: "What is the main benefit of the DRY principle?",
+    correctAnswer: "Reduces code duplication and maintenance burden",
+    wrongAnswers: ["Makes code run faster", "Increases file size", "Adds more features", "Makes testing harder", "Increases complexity"],
+  },
+  {
+    id: 19,
+    question: "Which HTTP status code indicates a successful resource creation?",
+    correctAnswer: "201 Created",
+    wrongAnswers: ["200 OK", "204 No Content", "301 Moved Permanently", "400 Bad Request", "500 Internal Server Error"],
+  },
+  {
+    id: 20,
+    question: "What does the 'U' in CRUD stand for?",
+    correctAnswer: "Update",
+    wrongAnswers: ["Upload", "Undo", "Utilize", "Unify", "Upgrade"],
+  },
+  {
+    id: 21,
+    question: "In MVC, which component handles business logic?",
+    correctAnswer: "Model",
+    wrongAnswers: ["View", "Controller", "Router", "Database", "Service"],
+  },
+  {
+    id: 22,
+    question: "What is the first step in TDD?",
+    correctAnswer: "Write a failing test",
+    wrongAnswers: ["Write production code", "Refactor existing code", "Deploy to production", "Write documentation", "Design the architecture"],
+  },
+  {
+    id: 23,
+    question: "Which SOLID principle states that objects of a superclass should be replaceable with objects of a subclass?",
+    correctAnswer: "Liskov Substitution Principle",
+    wrongAnswers: ["Single Responsibility", "Open/Closed", "Interface Segregation", "Dependency Inversion", "KISS"],
+  },
+  {
+    id: 24,
+    question: "What does REST stand for?",
+    correctAnswer: "Representational State Transfer",
+    wrongAnswers: ["Remote Execution State Transfer", "Relational State Transformation", "Resource Execution Standard Transfer", "Remote State Transaction", "Reactive State Transfer"],
+  },
+  {
+    id: 25,
+    question: "What is an API endpoint?",
+    correctAnswer: "A specific URL where an API can be accessed",
+    wrongAnswers: ["The final version of an API", "A database table", "A programming language", "A testing framework", "A deployment server"],
+  },
+  {
+    id: 26,
+    question: "Which HTTP method is used to delete a resource in REST?",
+    correctAnswer: "DELETE",
+    wrongAnswers: ["POST", "PUT", "GET", "REMOVE", "DESTROY"],
+  },
+  {
+    id: 27,
+    question: "What does the 'D' in CRUD stand for?",
+    correctAnswer: "Delete",
+    wrongAnswers: ["Deploy", "Download", "Duplicate", "Discover", "Distribute"],
+  },
+  {
+    id: 28,
+    question: "In TDD, what should you do after making a test pass?",
+    correctAnswer: "Refactor the code",
+    wrongAnswers: ["Write another test immediately", "Deploy to production", "Delete the test", "Write documentation", "Create a new feature"],
+  },
+  {
+    id: 29,
+    question: "Which SOLID principle suggests that high-level modules should not depend on low-level modules?",
+    correctAnswer: "Dependency Inversion Principle",
+    wrongAnswers: ["Single Responsibility", "Open/Closed", "Liskov Substitution", "Interface Segregation", "DRY"],
+  },
+  {
+    id: 30,
+    question: "What is the main goal of CI/CD?",
+    correctAnswer: "Automate software delivery and deployment",
+    wrongAnswers: ["Write more tests", "Increase code complexity", "Reduce team size", "Eliminate all bugs", "Make code harder to read"],
   },
 ];
 
@@ -86,7 +213,7 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 };
 
 const Quiz = () => {
-  const [questions, setQuestions] = useState<Question[]>([]);
+  const [questions, setQuestions] = useState<ShuffledQuestion[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
   const [showResults, setShowResults] = useState(false);
@@ -97,15 +224,23 @@ const Quiz = () => {
   }, []);
 
   const initializeQuiz = () => {
-    const shuffledQuestions = shuffleArray(allQuestions).map(q => ({
-      ...q,
-      options: shuffleArray(q.options.map((opt, idx) => ({ text: opt, originalIndex: idx }))),
-    })).map(q => ({
-      id: q.id,
-      question: q.question,
-      options: q.options.map(o => o.text),
-      correctAnswer: q.options.findIndex(o => o.originalIndex === allQuestions.find(aq => aq.id === q.id)!.correctAnswer),
-    }));
+    // Pick 10 random questions from the pool of 30
+    const selectedQuestions = shuffleArray(allQuestions).slice(0, 10);
+    
+    // For each question, pick 3 random wrong answers and combine with correct answer
+    const shuffledQuestions: ShuffledQuestion[] = selectedQuestions.map(q => {
+      const shuffledWrongAnswers = shuffleArray(q.wrongAnswers).slice(0, 3);
+      const allOptions = [...shuffledWrongAnswers, q.correctAnswer];
+      const shuffledOptions = shuffleArray(allOptions);
+      const correctAnswerIndex = shuffledOptions.indexOf(q.correctAnswer);
+      
+      return {
+        id: q.id,
+        question: q.question,
+        options: shuffledOptions,
+        correctAnswer: correctAnswerIndex,
+      };
+    });
     
     setQuestions(shuffledQuestions);
     setCurrentQuestion(0);
