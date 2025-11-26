@@ -24,7 +24,8 @@ const CICD = () => {
           <CardContent className="space-y-4 text-foreground">
             <p>
               CI/CD is a method to frequently deliver apps to customers by introducing automation into the stages of
-              app development. The main concepts are continuous integration, continuous delivery, and continuous deployment.
+              app development. <strong>The main goal is to automate software delivery and deployment</strong>, making 
+              the process faster, more reliable, and less error-prone.
             </p>
           </CardContent>
         </Card>

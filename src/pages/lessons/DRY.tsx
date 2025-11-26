@@ -35,14 +35,15 @@ const DRY = () => {
 
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle>Why is DRY Important?</CardTitle>
+            <CardTitle>Key Benefits of DRY</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 text-foreground">
             <ul className="list-disc list-inside space-y-2">
-              <li>Reduces maintenance burden - changes only need to be made in one place</li>
+              <li><strong>Reduces code duplication and maintenance burden</strong> - changes only need to be made in one place</li>
               <li>Minimizes bugs - fewer places for errors to hide</li>
               <li>Improves readability - less code to understand</li>
               <li>Enhances testability - fewer code paths to test</li>
+              <li>Makes refactoring easier and safer</li>
             </ul>
           </CardContent>
         </Card>

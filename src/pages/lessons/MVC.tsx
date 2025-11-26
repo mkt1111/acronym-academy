@@ -38,22 +38,22 @@ const MVC = () => {
             <div>
               <h3 className="font-bold text-lg mb-2">Model</h3>
               <p>
-                The central component that manages the data, logic, and rules of the application. It directly manages
-                the data and business logic, independent of the user interface.
+                The central component that <strong>manages the data, logic, and rules</strong> of the application. 
+                It directly handles the data and business logic, independent of the user interface.
               </p>
             </div>
             <div>
               <h3 className="font-bold text-lg mb-2">View</h3>
               <p>
-                The presentation layer that displays data to the user. It can be any output representation of information,
+                The presentation layer that <strong>displays information to users</strong>. It can be any output representation of information,
                 such as a chart, diagram, or table. Multiple views of the same data are possible.
               </p>
             </div>
             <div>
               <h3 className="font-bold text-lg mb-2">Controller</h3>
               <p>
-                Accepts input from the user and converts it to commands for the Model or View. It acts as an intermediary
-                between Model and View, processing business logic and incoming requests.
+                <strong>Accepts input from the user and processes user input to update the Model and View</strong>. 
+                It acts as an intermediary between Model and View, converting user actions into application operations.
               </p>
             </div>
           </CardContent>

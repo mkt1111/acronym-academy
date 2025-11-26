@@ -47,6 +47,39 @@ const REST = () => {
           </CardContent>
         </Card>
 
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle>HTTP Methods in REST</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4 text-foreground">
+            <p>REST APIs use standard HTTP methods, each with specific purposes:</p>
+            <ul className="list-disc list-inside space-y-2">
+              <li><strong>GET:</strong> Retrieve resources (idempotent - multiple identical requests have the same effect)</li>
+              <li><strong>POST:</strong> Create new resources</li>
+              <li><strong>PUT:</strong> Update existing resources (replace entire resource)</li>
+              <li><strong>PATCH:</strong> Partially update resources</li>
+              <li><strong>DELETE:</strong> Remove resources</li>
+            </ul>
+          </CardContent>
+        </Card>
+
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle>Common HTTP Status Codes</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4 text-foreground">
+            <p>REST APIs use HTTP status codes to indicate the result of a request:</p>
+            <ul className="list-disc list-inside space-y-2">
+              <li><strong>200 OK:</strong> Request succeeded</li>
+              <li><strong>201 Created:</strong> Resource successfully created</li>
+              <li><strong>204 No Content:</strong> Request succeeded but no content to return</li>
+              <li><strong>400 Bad Request:</strong> Invalid request from client</li>
+              <li><strong>404 Not Found:</strong> Resource doesn't exist</li>
+              <li><strong>500 Internal Server Error:</strong> Server-side error</li>
+            </ul>
+          </CardContent>
+        </Card>
+
         <Card>
           <CardHeader>
             <CardTitle>Common REST Patterns</CardTitle>
