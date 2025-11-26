@@ -37,22 +37,22 @@ const TDD = () => {
             <div>
               <h3 className="font-bold text-lg mb-2 text-destructive">1. Red - Write a Failing Test</h3>
               <p>
-                Write a test for the next bit of functionality you want to add. The test should fail because the
-                functionality doesn't exist yet.
+                <strong>Write a test for the next bit of functionality</strong> you want to add. The test should fail because the
+                functionality doesn't exist yet. This is the first step in TDD.
               </p>
             </div>
             <div>
               <h3 className="font-bold text-lg mb-2 text-green-500">2. Green - Make the Test Pass</h3>
               <p>
                 Write the minimum amount of code necessary to make the test pass. Don't worry about perfect code yet,
-                just make it work.
+                just make it work. A <strong>passing test is indicated by green</strong>.
               </p>
             </div>
             <div>
               <h3 className="font-bold text-lg mb-2 text-blue-500">3. Refactor - Improve the Code</h3>
               <p>
-                Clean up the code while keeping all tests passing. Improve structure, remove duplication, and enhance
-                readability.
+                <strong>Clean up and refactor the code</strong> while keeping all tests passing. Improve structure, 
+                remove duplication, and enhance readability. This is what you do after making a test pass.
               </p>
             </div>
           </CardContent>

@@ -35,6 +35,25 @@ const API = () => {
 
         <Card className="mb-8">
           <CardHeader>
+            <CardTitle>What is an API Endpoint?</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4 text-foreground">
+            <p>
+              An API endpoint is <strong>a specific URL where an API can be accessed</strong> by a client application. 
+              Each endpoint represents a specific function or resource in the API.
+            </p>
+            <p className="font-semibold">Examples of API endpoints:</p>
+            <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-foreground">
+{`https://api.example.com/users
+https://api.example.com/users/123
+https://api.example.com/products
+https://api.example.com/orders/456`}
+            </pre>
+          </CardContent>
+        </Card>
+
+        <Card className="mb-8">
+          <CardHeader>
             <CardTitle>Types of APIs</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 text-foreground">
