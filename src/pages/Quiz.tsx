@@ -263,6 +263,7 @@ const Quiz = () => {
           </CardHeader>
           <CardContent className="space-y-6">
             <RadioGroup
+              key={currentQuestion}
               value={selectedAnswers[currentQuestion]?.toString()}
               onValueChange={(value) => handleAnswerSelect(parseInt(value))}
             >
